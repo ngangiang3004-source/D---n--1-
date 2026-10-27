@@ -11,6 +11,8 @@
   var mainCourseAudio = null;
   var currentLessonIndex = -1;
   var isPlayingLesson = false;
+  var progressLessonIndex = -1;
+  var ttsProgressToken = 0;
 
   if (!course) {
     return;
@@ -90,6 +92,7 @@
       window.SonusAI.stopSpeech();
     }
     isPlayingLesson = false;
+    progressLessonIndex = -1;
     if (mainCourseAudio) {
       mainCourseAudio.pause();
     }
@@ -192,6 +195,8 @@
 
   var stopLessonPlayback = function () {
     isPlayingLesson = false;
+    progressLessonIndex = -1;
+    ttsProgressToken += 1;
     if (window.SonusAI && window.SonusAI.stopSpeech) {
       window.SonusAI.stopSpeech();
     }
@@ -230,6 +235,7 @@
     }
 
     isPlayingLesson = true;
+    progressLessonIndex = index;
     syncLessonButtons(index);
     setLessonStatus(index, 'Đang phát bài giảng MP3');
 
@@ -271,10 +277,14 @@
       ? 'Bài ' + (index + 1) + ': ' + lesson.title + '. ' + lesson.text
       : lesson.text;
 
+    var token = ++ttsProgressToken;
     window.SonusAI.speak(speech).finally(function () {
       isPlayingLesson = false;
       syncLessonButtons(-1);
       setLessonStatus(index, 'Đã đọc xong bài giảng.');
+      if (token === ttsProgressToken && window.SonusProgress) {
+        window.SonusProgress.markLessonComplete(course.id, index);
+      }
     });
 
     return true;
@@ -406,7 +416,13 @@
     mainCourseAudio.addEventListener('ended', function () {
       isPlayingLesson = false;
       syncLessonButtons(-1);
-      if (currentLessonIndex >= 0) {
+      if (progressLessonIndex >= 0) {
+        if (window.SonusProgress) {
+          window.SonusProgress.markLessonComplete(course.id, progressLessonIndex);
+        }
+        setLessonStatus(progressLessonIndex, 'Đã nghe xong bài MP3.');
+        progressLessonIndex = -1;
+      } else if (currentLessonIndex >= 0) {
         setLessonStatus(currentLessonIndex, 'Đã nghe xong bài MP3.');
       }
     });

@@ -70,11 +70,11 @@
               '<span class="account-chip" data-i18n="account.chipVoice">Giọng nói bật</span>' +
             '</div>' +
             '<p class="account-total-label" data-i18n="account.totalLabel">Tổng tiến độ học</p>' +
-            '<p class="account-total-value">42%</p>' +
-            '<a class="account-hero-card" href="' + prefix('lessons/co-ban-phim.html') + '">' +
+            '<p class="account-total-value js-account-total">0%</p>' +
+            '<a class="account-hero-card js-account-hero" href="' + prefix('lessons/co-ban-phim.html') + '">' +
               '<span>' +
-                '<strong data-i18n="account.heroTitle">Đang học: Cơ bản về phím</strong>' +
-                '<span data-i18n="account.heroMeta">5 / 8 bài · tiếp tục bài 6</span>' +
+                '<strong class="js-account-hero-title" data-i18n="account.heroIdle">Chưa nghe bài nào</strong>' +
+                '<span class="js-account-hero-meta">0 / 8 bài</span>' +
               '</span>' +
               icon('chevron') +
             '</a>' +
@@ -82,7 +82,7 @@
               '<div class="account-card__head">' +
                 '<div>' +
                   '<p class="account-card__id" data-i18n="course.not-nhac.title">Nốt nhạc</p>' +
-                  '<p class="account-card__balance">2 / 10</p>' +
+                  '<p class="account-card__balance js-account-card-not-nhac">0 / 10</p>' +
                 '</div>' +
                 '<div class="account-card__tools">' +
                   '<span aria-hidden="true">' + icon('star') + '</span>' +
@@ -100,7 +100,7 @@
               '<div class="account-card__head">' +
                 '<div>' +
                   '<p class="account-card__id" data-i18n="course.so-cap.title">Sơ cấp</p>' +
-                  '<p class="account-card__balance">0 / 12</p>' +
+                  '<p class="account-card__balance js-account-card-so-cap">0 / 12</p>' +
                 '</div>' +
                 '<div class="account-card__tools">' +
                   '<span aria-hidden="true">' + icon('star') + '</span>' +
@@ -116,15 +116,12 @@
             '</article>' +
             '<div class="account-bottom">' +
               '<a class="account-bottom__ghost js-account-logout" href="' + prefix('index.html') + '" data-i18n="account.logout">Đăng xuất</a>' +
-              '<a class="account-bottom__gold" href="' + prefix('lessons/co-ban-phim.html') + '" data-i18n="account.continue">Tiếp tục học</a>' +
+              '<a class="account-bottom__gold js-account-continue" href="' + prefix('lessons/co-ban-phim.html') + '" data-i18n="account.continue">Tiếp tục học</a>' +
             '</div>' +
           '</div>' +
           '<div class="account-settings" id="account-pane-progress" role="tabpanel" hidden data-pane="progress">' +
-            '<p class="account-total-label" data-i18n="account.progressIntro">Các khóa bạn đã mở</p>' +
-            '<div class="account-setting-row"><span data-i18n="course.co-ban-phim.title">Cơ bản về phím</span><strong>62%</strong></div>' +
-            '<div class="account-setting-row"><span data-i18n="course.not-nhac.title">Nốt nhạc</span><strong>20%</strong></div>' +
-            '<div class="account-setting-row"><span data-i18n="course.so-cap.title">Sơ cấp</span><strong>0%</strong></div>' +
-            '<div class="account-setting-row"><span data-i18n="account.practiceTime">Thời gian luyện tuần này</span><strong>3 giờ 20 phút</strong></div>' +
+            '<p class="account-total-label" data-i18n="account.progressIntro">Tiến độ theo bài đã nghe hết</p>' +
+            '<div class="js-account-progress-rows"></div>' +
           '</div>' +
           '<div class="account-settings" id="account-pane-settings" role="tabpanel" hidden data-pane="settings">' +
             '<button type="button" class="account-setting-row js-account-theme"><span data-i18n="account.settingTheme">Đổi giao diện sáng / tối</span><span aria-hidden="true">→</span></button>' +

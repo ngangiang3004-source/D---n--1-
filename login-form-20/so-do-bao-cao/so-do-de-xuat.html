@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Sơ đồ đề xuất lọc ồn</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1400px;
+    background: #fff;
+    font-family: "Times New Roman", Times, serif;
+    color: #1A2A4A;
+    padding: 28px 32px 24px;
+  }
+  h1 { text-align: center; font-size: 24px; line-height: 1.25; }
+  .sub { text-align: center; color: #8A6A20; font-size: 14px; margin: 6px 0 22px; }
+  .row { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 8px; }
+  .lab { font-size: 13px; font-weight: 700; margin: 4px 0 10px 8px; }
+  .box {
+    border: 1.5px solid #1A2A4A;
+    border-radius: 6px;
+    padding: 12px 10px;
+    text-align: center;
+    min-height: 88px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #F7F3E8;
+  }
+  .box b { font-size: 16px; display: block; margin-bottom: 4px; }
+  .box span { font-size: 12px; color: #444; }
+  .navy { background: #1A2A4A; color: #fff; border-color: #1A2A4A; }
+  .navy b { color: #F4E4B3; }
+  .navy span { color: #eee; }
+  .gold { background: #1A2A4A; border: 2px solid #B88A2E; color: #fff; }
+  .gold b { color: #F4E4B3; }
+  .gold span { color: #eee; }
+  .blue { background: #E8EEF6; }
+  .app { background: #F7F3E8; border-color: #C9B27A; min-width: 300px; }
+  .arrow { color: #B88A2E; font-size: 22px; font-weight: 700; padding: 0 2px; }
+  .down { text-align: center; color: #B88A2E; font-size: 20px; margin: 2px 0 10px; }
+  .notes { display: flex; gap: 16px; margin-top: 18px; }
+  .card {
+    flex: 1;
+    border: 1px solid #1A2A4A;
+    border-radius: 6px;
+    padding: 16px 18px 14px;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .card h2 { font-size: 15px; margin-bottom: 8px; }
+  .warn { color: #8A6A20; font-style: italic; margin-top: 8px; }
+  .w140 { width: 180px; }
+  .w180 { width: 200px; }
+  .w220 { width: 230px; }
+  .w260 { width: 260px; }
+  .w300 { width: 320px; }
+</style>
+</head>
+<body>
+  <h1>Hình. Kiến trúc đề xuất nếu sử dụng lọc ồn trước khi nhận dạng</h1>
+  <p class="sub">SONUS TACTIC &nbsp;·&nbsp; ĐỀ XUẤT, CHƯA TRIỂN KHAI</p>
+
+  <p class="lab">Bước 1–2. Thu âm và giảm nhiễu</p>
+  <div class="row">
+    <div class="box w140"><b>Micro</b><span>giọng + ồn nền</span></div>
+    <div class="arrow">→</div>
+    <div class="box blue w180"><b>getUserMedia</b><span>giữ mic một lần<br>HTTPS / localhost</span></div>
+    <div class="arrow">→</div>
+    <div class="box navy w220"><b>WebRTC</b><span>echoCancellation<br>noiseSuppression<br>autoGainControl</span></div>
+    <div class="arrow">→</div>
+    <div class="box gold w180"><b>RNNoise</b><span>lọc ồn nền (WASM)<br>bộ lọc nhiễu chính</span></div>
+  </div>
+
+  <div class="down">↓</div>
+
+  <p class="lab">Bước 3–4. Nhận dạng và ứng dụng</p>
+  <div class="row">
+    <div class="box blue w180"><b>VAD</b><span>cắt câu khi im lặng</span></div>
+    <div class="arrow">→</div>
+    <div class="box navy w260"><b>Whisper ASR</b><span>bộ nhận dạng · xuất chữ</span></div>
+    <div class="arrow">→</div>
+    <div class="box app w300"><b>Khớp lệnh + phát MP3</b><span>voice-assistant.js (đã có)<br>trang chủ, bài học, hướng dẫn, dừng</span></div>
+  </div>
+
+  <div class="notes">
+    <div class="card">
+      <h2>Chú thích công nghệ (đề xuất)</h2>
+      <p>1. WebRTC: lọc ồn nhẹ, chống echo loa, chỉnh gain mic.</p>
+      <p>2. RNNoise: mạng nhỏ trong trình duyệt, cắt quạt / gõ phím.</p>
+      <p>3. VAD: phát hiện hết câu rồi mới gửi Whisper.</p>
+      <p>4. Whisper: nhận đúng audio đã lọc, xuất chữ.</p>
+      <p>5. Không dùng Chrome SpeechRecognition ở hướng này vì API đó không nhận luồng audio đã lọc.</p>
+      <p class="warn">Trạng thái: đề xuất kỹ thuật — chưa có trong mã nguồn.</p>
+    </div>
+    <div class="card">
+      <h2>Phân vai (ghi chú hình báo cáo)</h2>
+      <p><b>Bộ lọc nhiễu:</b> WebRTC + RNNoise</p>
+      <p><b>Bộ nhận dạng:</b> Whisper (máy hoặc cloud)</p>
+      <p><b>Bộ khớp lệnh:</b> code website hiện tại</p>
+      <p><b>Phản hồi giọng:</b> file MP3 đã ghi</p>
+      <p style="margin-top:10px">Hệ thống đang chạy khác sơ đồ này: đang dùng Web Speech API, không RNNoise, không Whisper.</p>
+    </div>
+  </div>
+</body>
+</html>

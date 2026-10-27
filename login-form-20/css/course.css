@@ -1,0 +1,255 @@
+.course-page {
+  padding-top: calc(var(--header-height) + 32px);
+  min-height: 100vh;
+}
+
+.course-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 32px 96px;
+}
+
+.course-breadcrumb {
+  margin-bottom: 24px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.course-breadcrumb a {
+  color: var(--gold);
+}
+
+.course-breadcrumb a:hover,
+.course-breadcrumb a:focus-visible {
+  text-decoration: underline;
+}
+
+.course-header {
+  margin-bottom: 40px;
+}
+
+.course-header h1 {
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: var(--text-primary);
+}
+
+.course-intro {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+
+.course-meta {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.course-audio-hub {
+  margin-bottom: 48px;
+  padding: 28px;
+  border-radius: 16px;
+  background: var(--bg-stats);
+  border: 2px solid var(--gold);
+  scroll-margin-top: calc(var(--header-height) + 24px);
+}
+
+.course-audio-hub h2 {
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 12px 0 10px;
+  color: var(--text-primary);
+}
+
+.audio-hub-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.audio-now-playing {
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--bg-page);
+  border: 1px solid var(--border-color);
+}
+
+.lesson-chat-panel {
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--bg-page);
+  border: 1px solid var(--border-color);
+  max-height: 280px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+}
+
+.lesson-chat-label {
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.lesson-chat-text {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+  white-space: pre-wrap;
+}
+
+.now-playing-label {
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.main-course-audio {
+  width: 100%;
+  margin-bottom: 12px;
+  min-height: 40px;
+}
+
+.main-course-audio:not([src]) {
+  display: none;
+}
+
+.audio-hub-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn-outline-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1.5px solid var(--border-color);
+  color: var(--text-primary);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-outline-dark:hover,
+.btn-outline-dark:focus-visible {
+  border-color: var(--gold);
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.course-lessons h2 {
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+.course-lesson-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.course-lesson-item {
+  scroll-margin-top: calc(var(--header-height) + 24px);
+}
+
+.lesson-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: var(--bg-stats);
+  border: 1px solid var(--border-color);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.course-lesson-item:target .lesson-row,
+.lesson-row:focus-within {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184, 149, 106, 0.2);
+}
+
+.lesson-play-btn {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.lesson-play-btn:hover,
+.lesson-play-btn:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+  transform: scale(1.05);
+}
+
+.lesson-play-btn.is-playing {
+  background: #7a2419;
+}
+
+[data-theme="dark"] .lesson-play-btn.is-playing {
+  background: #5a7a99;
+}
+
+.lesson-play-icon {
+  font-size: 1rem;
+  margin-left: 2px;
+}
+
+.lesson-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.lesson-info .lesson-name {
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+
+.lesson-audio {
+  display: none;
+}
+
+.lesson-audio-status {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.course-back {
+  margin-top: 40px;
+}
+
+@media (max-width: 576px) {
+  .course-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

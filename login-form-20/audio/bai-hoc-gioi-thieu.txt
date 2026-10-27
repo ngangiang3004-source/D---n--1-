@@ -1,0 +1,39 @@
+KỊCH BẢN THU MP3 — Giới thiệu khi nói «bài học»
+==================================================
+
+Đọc to, rõ ràng, tốc độ vừa phải. Sau khi thu xong, lưu file:
+
+  audio/bai-hoc-gioi-thieu.mp3
+
+---
+
+Đang mở bài học.
+
+Chúng tôi có bảy lộ trình học.
+
+Cơ bản về phím — làm quen bàn phím đàn.
+
+Nốt nhạc — học tên nốt và thang âm.
+
+Sơ cấp — dành cho người mới bắt đầu.
+
+Trung cấp — hợp âm và kỹ thuật nâng cao.
+
+Cao cấp — repertoire khó hơn.
+
+Braille — đọc nhạc nổi.
+
+Thực hành — bài tập luyện tập hàng ngày.
+
+Bạn muốn học khóa nào? Hãy nói tên khóa.
+
+---
+
+BẢN TIẾNG ANH — lưu file:
+
+  audio/bai-hoc-gioi-thieu-en.mp3
+
+After you start, choose a learning path.
+We have seven courses: Keyboard Basics, Music Notes, Beginner, Intermediate, Advanced, Braille, and Practice.
+Each course is a sequence of spoken lessons.
+Play the audio, follow with your hands on the piano, and move to the next lesson when you are ready.

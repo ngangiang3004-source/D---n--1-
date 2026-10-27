@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <title>SONUS TACTIC — Học piano cho người khiếm thị</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/account-panel.css">
+  <link rel="stylesheet" href="css/voice-assistant.css">
+  <script src="js/i18n.js"></script>
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('sonus-theme') === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+        var lang = localStorage.getItem('sonus-lang');
+        if (!lang || !window.SonusI18n || !window.SonusI18n.strings[lang]) {
+          lang = 'vi';
+        }
+        document.documentElement.lang = lang;
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body data-i18n-page-title="page.home.title">
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="home.html" class="logo">
+        <img src="images/logo.png" alt="SONUS TACTIC" class="logo-img" data-logo-light="images/logo.png" data-logo-dark="images/logo-dark.png">
+      </a>
+
+      <nav class="main-nav" aria-label="Điều hướng chính" data-i18n-aria="nav.mainLabel">
+        <a href="home.html" data-i18n="nav.home">Trang chủ</a>
+        <div class="nav-item nav-item--lessons">
+          <a
+            href="#bai-hoc"
+            class="nav-lessons-trigger"
+            id="nav-lessons-trigger"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="lesson-nav-menu"`
+            data-i18n="nav.lessons">
+            Bài Học
+          </a>
+          <ul class="lesson-nav-menu" id="lesson-nav-menu" role="menu" aria-label="Danh mục bài học" data-i18n-aria="nav.lessonsMenuLabel" hidden>
+            <li role="none"><a role="menuitem" href="lessons/co-ban-phim.html" tabindex="-1" data-i18n="course.co-ban-phim.title">Cơ bản về phím</a></li>
+            <li role="none"><a role="menuitem" href="lessons/not-nhac.html" tabindex="-1" data-i18n="course.not-nhac.title">Nốt nhạc</a></li>
+            <li role="none"><a role="menuitem" href="lessons/so-cap.html" tabindex="-1" data-i18n="course.so-cap.title">Sơ cấp</a></li>
+            <li role="none"><a role="menuitem" href="lessons/trung-cap.html" tabindex="-1" data-i18n="course.trung-cap.title">Trung cấp</a></li>
+            <li role="none"><a role="menuitem" href="lessons/cao-cap.html" tabindex="-1" data-i18n="course.cao-cap.title">Cao cấp</a></li>
+            <li role="none"><a role="menuitem" href="lessons/braille.html" tabindex="-1" data-i18n="course.braille.title">Braille</a></li>
+            <li role="none"><a role="menuitem" href="lessons/thuc-hanh.html" tabindex="-1" data-i18n="course.thuc-hanh.title">Thực hành</a></li>
+          </ul>
+        </div>
+        <a href="#bai-nhac" data-i18n="nav.music">Các bài nhạc nên thử</a>
+        <a href="#ve-chung-toi" data-i18n="nav.about">Về chúng tôi</a>
+        <a href="#lien-lac" data-i18n="nav.contact">Liên lạc</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="btn-ai-header ai-assistant-trigger" aria-pressed="false" data-i18n-aria="nav.aiLabel" aria-label="Mở trợ lý AI giọng nói">
+          <span aria-hidden="true">🎤</span> <span data-i18n="nav.ai">Trợ lý AI</span>
+        </button>
+        <button type="button" class="theme-toggle" data-i18n-aria="nav.themeLabel" aria-label="Chuyển giao diện sáng hoặc tối">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        <button type="button" class="btn btn-gold btn-sm js-account-open" data-i18n="nav.account" data-i18n-aria="account.openLabel" aria-haspopup="dialog" aria-controls="account-panel">Tài khoản của tôi</button>
+        <button type="button" class="menu-toggle" data-i18n-aria="nav.menuLabel" aria-label="Mở menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <picture class="hero-media">
+        <img
+          src="images/hero.png"
+          alt="Bàn phím đàn piano trong ánh nắng, minh họa cho khóa học piano Sonus Tactic"
+          class="hero-bg"
+          data-i18n-alt="hero.imgAlt"
+          fetchpriority="high"
+          decoding="async"
+          width="736"
+          height="414">
+      </picture>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="hero-badge" data-i18n="hero.badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M9 18V5l12-2v13"></path>
+            <circle cx="6" cy="18" r="3"></circle>
+            <circle cx="18" cy="16" r="3"></circle>
+          </svg>
+          Dành riêng cho người khiếm thị
+        </span>
+
+        <h1 data-i18n="hero.title">Học Piano Qua Âm Thanh, Xúc Giác Và Braille</h1>
+        <p class="hero-desc" data-i18n="hero.desc">Sonus Tactic giúp bạn làm quen với piano từng bước — qua hướng dẫn bằng giọng nói, mô tả vị trí phím, bài tập thực hành và bản nhạc Braille dễ tiếp cận.</p>
+
+        <div class="hero-actions" id="bai-nhac">
+          <a href="#bai-hoc" class="btn btn-gold" data-i18n="hero.cta1">Bắt đầu học &rarr;</a>
+          <a href="#bai-nhac" class="btn btn-outline" data-i18n="hero.cta2">Khám phá bài nhạc</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="lessons" id="bai-hoc" aria-labelledby="lessons-heading">
+      <div class="lessons-inner">
+        <header class="lessons-header">
+          <span class="section-tag" data-i18n="lessons.tag">Bài học</span>
+          <h2 id="lessons-heading" data-i18n="lessons.title">Chọn lộ trình học piano</h2>
+          <p class="lessons-intro" data-i18n="lessons.intro">
+            Chọn khóa học để nghe bài giảng. Bài có file MP3 phát trực tiếp; bài chưa có file thì Trợ lý AI đọc nội dung.
+          </p>
+        </header>
+
+        <ul class="lesson-list" role="list" data-i18n-aria="lessons.listLabel" aria-label="Danh sách lộ trình bài học">
+          <li class="lesson-list__item" id="bai-hoc-co-ban-phim">
+            <a href="lessons/co-ban-phim.html#nghe-bai-giang" class="lesson-card">
+              <span class="lesson-card__step" data-i18n="course.co-ban-phim.step">Bước 1</span>
+              <h3 class="lesson-card__title" data-i18n="course.co-ban-phim.title">Cơ bản về phím</h3>
+              <p class="lesson-card__desc" data-i18n="course.co-ban-phim.desc">Làm quen bàn phím piano: phím trắng, phím đen, vị trí tay và cách xác định phím bằng xúc giác.</p>
+              <span class="lesson-card__meta" data-i18n="lessons.meta" data-i18n-count="8">8 bài học</span>
+            </a>
+          </li>
+          <li class="lesson-list__item" id="bai-hoc-not">
+            <a href="lessons/not-nhac.html#nghe-bai-giang" class="lesson-card">
+              <span class="lesson-card__step" data-i18n="course.not-nhac.step">Bước 2</span>
+              <h3 class="lesson-card__title" data-i18n="course.not-nhac.title">Nốt nhạc</h3>
+              <p class="lesson-card__desc" data-i18n="course.not-nhac.desc">Học tên nốt Đô–Rê–Mi, quãng, thang âm và cách nghe phân biệt cao độ trên đàn.</p>
+              <span class="lesson-card__meta" data-i18n="lessons.meta" data-i18n-count="10">10 bài học</span>
+            </a>
+          </li>
+          <li class="lesson-list__item" id="bai-hoc-so-cap">
+            <a href="lessons/so-cap.html#nghe-bai-giang" class="lesson-card">
+              <span class="lesson-card__step" data-i18n="course.so-cap.step">Sơ cấp</span>
+              <h3 class="lesson-card__title" data-i18n="course.so-cap.title">Sơ cấp</h3>
+              <p class="lesson-card__desc" data-i18n="course.so-cap.desc">Bài tập ngón cơ bản, nhịp đơn giản và những bản nhạc ngắn phù hợp người mới bắt đầu.</p>
+              <span class="lesson-card__meta" data-i18n="lessons.meta" data-i18n-count="12">12 bài học</span>
+            </a>
+          </li>
+          <li class="lesson-list__item" id="bai-hoc-trung-cap">
+            <a href="lessons/trung-cap.html#nghe-bai-giang" class="lesson-card">
+              <span class="lesson-card__step" data-i18n="course.trung-cap.step">Trung cấp</span>
+              <h3 class="lesson-card__title" data-i18n="course.trung-cap.title">Trung cấp</h3>
+              <p class="lesson-card__desc" data-i18n="course.trung-cap.desc">Hợp âm, nhịp phức tạp hơn, kỹ thuật ngón liên tục và bản nhạc có độ khó trung bình.</p>
+              <span class="lesson-card__meta" data-i18n="lessons.meta" data-i18n-count="18">18 bài học</span>
+            </a>
+          </li>
+          <li class="lesson-list__item" id="bai-hoc-cao-cap">
+            <a href="lessons/cao-cap.html#nghe-bai-giang" class="lesson-card">
+              <span class="lesson-card__step" data-i18n="course.cao-cap.step">Cao cấp</span>
+              <h3 class="lesson-card__title" data-i18n="course.cao-cap.title">Cao cấp</h3>
+              <p class="lesson-card__desc" data-i18n="course.cao-cap.desc">Kỹ thuật biểu cảm, pedal, tốc độ cao và repertoire cổ điển nâng cao.</p>
+              <span class="lesson-card__meta" data-i18n="lessons.meta" data-i18n-count="14">14 bài học</span>
+            </a>
+          </li>
+          <li class="lesson-list__item" id="bai-hoc-braille">
+            <a href="lessons/braille.html#nghe-bai-giang" class="lesson-card">
+              <span class="lesson-card__step" data-i18n="course.braille.step">Braille</span>
+              <h3 class="lesson-card__title" data-i18n="course.braille.title">Đọc nhạc Braille</h3>
+              <p class="lesson-card__desc" data-i18n="course.braille.desc">Hướng dẫn đọc ký hiệu Braille âm nhạc, bản nhạc nổi và cách luyện tập song song với nghe.</p>
+              <span class="lesson-card__meta" data-i18n="lessons.meta" data-i18n-count="12">12 bài học</span>
+            </a>
+          </li>
+          <li class="lesson-list__item" id="bai-hoc-thuc-hanh">
+            <a href="lessons/thuc-hanh.html#nghe-bai-giang" class="lesson-card">
+              <span class="lesson-card__step" data-i18n="course.thuc-hanh.step">Thực hành</span>
+              <h3 class="lesson-card__title" data-i18n="course.thuc-hanh.title">Thực hành</h3>
+              <p class="lesson-card__desc" data-i18n="course.thuc-hanh.desc">Bài tập lặp lại theo nhịp, luyện tay trái–phải và các drill ngắn để củng cố kỹ năng.</p>
+              <span class="lesson-card__meta" data-i18n="lessons.meta" data-i18n-count="15">15 bài học</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <strong>120+</strong>
+          <span data-i18n="stats.students">Học viên đang theo học</span>
+        </div>
+        <div class="stat-item">
+          <strong>80+</strong>
+          <span data-i18n="stats.lessons">Bài học có hướng dẫn</span>
+        </div>
+        <div class="stat-item">
+          <strong>50+</strong>
+          <span data-i18n="stats.braille">Bản nhạc Braille</span>
+        </div>
+        <div class="stat-item">
+          <strong>100%</strong>
+          <span data-i18n="stats.vietnamese">Hỗ trợ tiếng Việt</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="expertise" id="ve-chung-toi">
+      <span class="section-tag" data-i18n="about.tag">Phương pháp của chúng tôi</span>
+      <h2 data-i18n="about.title">Piano cho mọi người — không rào cản thị giác</h2>
+      <p data-i18n="about.desc">Chúng tôi thiết kế từng bài học để bạn cảm nhận vị trí phím, nhịp điệu và kỹ thuật ngón tay qua âm thanh rõ ràng, hướng dẫn từng bước và bản nhạc Braille. Mục tiêu là giúp bạn tự tin chơi piano theo tốc độ của riêng mình.</p>
+    </section>
+
+    <section class="contact" id="lien-lac">
+      <span class="section-tag" data-i18n="contact.tag">Liên lạc</span>
+      <h2 data-i18n="contact.title">Bạn cần hỗ trợ khi học?</h2>
+      <p data-i18n="contact.desc">Đội ngũ Sonus Tactic sẵn sàng tư vấn lộ trình học, hướng dẫn sử dụng nền tảng và giải đáp thắc mắc về bài học hoặc bản nhạc Braille.</p>
+      <a href="mailto:contact@sonustactic.vn" class="btn btn-gold" data-i18n="contact.cta">Gửi email hỗ trợ</a>
+    </section>
+  </main>
+
+  <script src="js/lesson-courses.js"></script>
+  <script src="js/voice-i18n.js"></script>
+  <script src="js/language-switcher.js"></script>
+  <script src="js/account-panel.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/voice-lessons.js"></script>
+  <script src="js/voice-assistant.js"></script>
+</body>
+</html>

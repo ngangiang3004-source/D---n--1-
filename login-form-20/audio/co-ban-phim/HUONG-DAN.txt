@@ -1,0 +1,8 @@
+Đặt file MP3 bài giảng vào đây.
+
+Ví dụ Bài 1 khóa Cơ bản về phím:
+  audio/co-ban-phim/bai1_khoacoban.mp3
+
+Sau đó mở lessons/co-ban-phim.html và nhấn ▶ Bài 1.
+
+Nếu không có MP3, Trợ lý AI sẽ đọc nội dung text tự động.

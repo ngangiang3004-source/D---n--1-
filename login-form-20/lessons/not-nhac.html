@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="vi" data-course-id="not-nhac">
+<head>
+  <title>Khoa hoc — SONUS TACTIC</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="../css/course.css">
+  <link rel="stylesheet" href="../css/account-panel.css">
+  <link rel="stylesheet" href="../css/voice-assistant.css">
+  <script src="../js/i18n.js"></script>
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('sonus-theme') === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+        var lang = localStorage.getItem('sonus-lang');
+        if (!lang || !window.SonusI18n || !window.SonusI18n.strings[lang]) {
+          lang = 'vi';
+        }
+        document.documentElement.lang = lang;
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../home.html" class="logo">
+        <img src="../images/logo.png" alt="SONUS TACTIC" class="logo-img" data-logo-light="../images/logo.png" data-logo-dark="../images/logo-dark.png">
+      </a>
+
+      <nav class="main-nav" aria-label="Điều hướng chính" data-i18n-aria="nav.mainLabel">
+        <a href="../home.html" data-i18n="nav.home">Trang chủ</a>
+        <a href="../home.html#bai-hoc" data-i18n="nav.lessons">Bài Học</a>
+        <a href="../home.html#bai-nhac" data-i18n="nav.music">Các bài nhạc nên thử</a>
+        <a href="../home.html#ve-chung-toi" data-i18n="nav.about">Về chúng tôi</a>
+        <a href="../home.html#lien-lac" data-i18n="nav.contact">Liên lạc</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="btn-ai-header ai-assistant-trigger" aria-pressed="false" data-i18n-aria="nav.aiLabel" aria-label="Mở trợ lý AI giọng nói">
+          <span aria-hidden="true">🎤</span> <span data-i18n="nav.ai">Trợ lý AI</span>
+        </button>
+        <button type="button" class="theme-toggle" data-i18n-aria="nav.themeLabel" aria-label="Chuyển giao diện sáng hoặc tối">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        <button type="button" class="btn btn-gold btn-sm js-account-open" data-i18n="nav.account" data-i18n-aria="account.openLabel" aria-haspopup="dialog" aria-controls="account-panel">Tài khoản của tôi</button>
+        <button type="button" class="menu-toggle" data-i18n-aria="nav.menuLabel" aria-label="Mở menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-page">
+    <div class="course-inner">
+      <nav class="course-breadcrumb" aria-label="Breadcrumb" data-i18n-aria="course.breadcrumbLabel">
+        <a href="../home.html" data-i18n="nav.home">Trang chủ</a>
+        <span aria-hidden="true"> / </span>
+        <a href="../home.html#bai-hoc" data-i18n="course.breadcrumbLessons">Bài học</a>
+        <span aria-hidden="true"> / </span>
+        <span id="course-step">Khóa học</span>
+      </nav>
+
+      <header class="course-header">
+        <span class="section-tag" id="course-step-badge">Khóa học</span>
+        <h1 id="course-title" data-i18n="course.loading">Đang tải...</h1>
+        <p class="course-intro" id="course-intro"></p>
+        <p class="course-meta" id="course-meta"></p>
+      </header>
+
+      <section class="course-audio-hub" id="nghe-bai-giang" aria-labelledby="audio-hub-heading">
+        <span class="section-tag" data-i18n="course.lessonsTag">Bài giảng</span>
+        <h2 id="audio-hub-heading" data-i18n="course.listenTitle">Nghe bài giảng</h2>
+        <p class="audio-hub-desc" id="audio-hub-desc" data-i18n="course.listenDesc">
+          Chọn bài bên dưới hoặc nói «bài 1», «bài 2». Bài có file nghe sẽ phát trực tiếp.
+        </p>
+
+        <div class="lesson-chat-panel" id="lesson-chat-panel" aria-live="polite" aria-atomic="true">
+          <p class="lesson-chat-label" id="now-playing-label" data-i18n="course.notSelected">Chưa chọn bài — hãy chọn một bài để nghe</p>
+          <audio id="main-course-audio" class="main-course-audio" controls preload="none"
+            data-i18n-aria="course.audioLabel" aria-label="Trình phát bài giảng"></audio>
+          <div class="lesson-chat-text" id="lesson-chat-text"></div>
+        </div>
+
+        <div class="audio-hub-actions">
+          <button type="button" class="btn btn-gold" id="play-first-lesson" data-i18n="course.playFirst">
+            ▶ Nghe bài 1
+          </button>
+          <button type="button" class="btn btn-outline-dark" id="stop-course-audio" data-i18n="course.stop">
+            Dừng phát
+          </button>
+        </div>
+      </section>
+
+      <section class="course-lessons" aria-labelledby="course-lessons-heading">
+        <h2 id="course-lessons-heading" data-i18n="course.pickLesson">Chọn bài để nghe</h2>
+        <ul class="course-lesson-list" id="course-lesson-list" role="list"></ul>
+      </section>
+
+      <p class="course-back">
+        <a href="../home.html#bai-hoc" class="btn btn-gold" data-i18n="course.back">&larr; Quay lại danh mục bài học</a>
+      </p>
+    </div>
+  </main>
+
+  <script src="../js/lesson-courses.js"></script>
+  <script src="../js/lesson-content.js"></script>
+  <script src="../js/voice-i18n.js"></script>
+  <script src="../js/language-switcher.js"></script>
+  <script src="../js/account-panel.js"></script>
+  <script src="../js/home.js"></script>
+  <script src="../js/course-page.js"></script>
+  <script src="../js/voice-lessons.js"></script>
+  <script src="../js/voice-assistant.js"></script>
+</body>
+</html>

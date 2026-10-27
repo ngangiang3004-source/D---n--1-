@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>So sánh luồng hiện tại và đề xuất</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1400px;
+    background: #fff;
+    font-family: "Times New Roman", Times, serif;
+    color: #1A2A4A;
+    padding: 28px 32px 24px;
+  }
+  h1 { text-align: center; font-size: 24px; }
+  .sub { text-align: center; color: #666; font-size: 13px; margin: 6px 0 22px; }
+  .cols { display: flex; gap: 24px; }
+  .col {
+    flex: 1;
+    border: 1.5px solid #1A2A4A;
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: 480px;
+  }
+  .col.prop { border-color: #B88A2E; }
+  .hd {
+    background: #1A2A4A;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 12px;
+  }
+  .col.prop .hd { background: #B88A2E; }
+  .inner { padding: 22px 28px 18px; }
+  .box {
+    border: 1.5px solid #1A2A4A;
+    border-radius: 5px;
+    padding: 12px 10px;
+    text-align: center;
+    margin: 0 auto;
+    width: 92%;
+  }
+  .box b { display: block; font-size: 16px; margin-bottom: 3px; }
+  .box span { font-size: 13px; color: #444; }
+  .navy { background: #1A2A4A; color: #fff; }
+  .navy b { color: #F4E4B3; }
+  .navy span { color: #eee; }
+  .cream { background: #F7F3E8; border-color: #C9B27A; }
+  .blue { background: #E8EEF6; }
+  .pair { display: flex; gap: 10px; width: 92%; margin: 0 auto; }
+  .pair .box { width: 48%; margin: 0; }
+  .gold { background: #1A2A4A; border: 2px solid #B88A2E; color: #fff; }
+  .gold b { color: #F4E4B3; }
+  .gold span { color: #eee; }
+  .arr { text-align: center; color: #B88A2E; font-size: 20px; margin: 8px 0; }
+  .foot { text-align: center; font-size: 13px; color: #444; margin-top: 16px; line-height: 1.5; }
+  .foot em { color: #8A6A20; }
+</style>
+</head>
+<body>
+  <h1>Hình. So sánh luồng đang dùng và luồng đề xuất</h1>
+  <p class="sub">SONUS TACTIC · dùng cho chú thích báo cáo</p>
+  <div class="cols">
+    <div class="col">
+      <div class="hd">A. ĐANG TRIỂN KHAI</div>
+      <div class="inner">
+        <div class="box blue"><b>Micro</b><span>Chrome tự lấy</span></div>
+        <div class="arr">↓</div>
+        <div class="box navy"><b>Web Speech API</b><span>webkitSpeechRecognition · vi-VN</span></div>
+        <div class="arr">↓</div>
+        <div class="box cream"><b>Khớp lệnh + phát MP3</b><span>voice-assistant.js (đã có)</span></div>
+        <p class="foot">
+          Bộ lọc ồn do nhóm viết: <b>không có</b><br>
+          Bộ nhận dạng: <b>Chrome Speech Recognition</b><br>
+          <em>Đây là hệ thống đang chạy</em>
+        </p>
+      </div>
+    </div>
+    <div class="col prop">
+      <div class="hd">B. ĐỀ XUẤT — CHƯA LÀM</div>
+      <div class="inner">
+        <div class="box blue"><b>Micro → getUserMedia</b><span>giữ mic một lần</span></div>
+        <div class="arr">↓</div>
+        <div class="pair">
+          <div class="box navy"><b>WebRTC</b><span>echo / NS / AGC</span></div>
+          <div class="box gold"><b>RNNoise</b><span>lọc ồn nền</span></div>
+        </div>
+        <div class="arr">↓</div>
+        <div class="box navy"><b>Whisper ASR</b><span>xuất chữ</span></div>
+        <div class="arr">↓</div>
+        <div class="box cream"><b>Khớp lệnh + phát MP3</b><span>giữ nguyên code hiện tại</span></div>
+        <p class="foot">
+          Bộ lọc: <b>WebRTC + RNNoise</b><br>
+          Bộ nhận dạng: <b>Whisper</b>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

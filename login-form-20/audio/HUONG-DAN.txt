@@ -1,0 +1,19 @@
+
+Thư mục chứa file MP3 bài giảng.
+
+Cấu trúc:
+  audio/co-ban-phim/bai-01.mp3
+  audio/co-ban-phim/bai-02.mp3
+  ...
+  audio/co-ban-phim/bai-08.mp3
+
+Quy tắc đặt tên:
+  bai-01.mp3 = bài 1
+  bai-02.mp3 = bài 2
+  (luôn 2 chữ số: 01, 02, ..., 10)
+
+Sau khi copy MP3 vào đúng thư mục, mở lại trang:
+  lessons/co-ban-phim.html
+  Nhấn nút Phát hoặc dùng Trợ lý AI: "bài 1", "bài 2"...
+
+Kịch bản thu âm: lessons/audio-scripts/co-ban-phim.txt

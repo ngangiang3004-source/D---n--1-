@@ -1,0 +1,34 @@
+CHÚ THÍCH HÌNH — gửi mẹ / đưa vào báo cáo
+(Hai file PNG trong cùng thư mục này)
+
+==================================================
+HÌNH 1. Hinh-kien-truc-de-xuat-loc-on.png
+==================================================
+Chú thích gợi ý:
+Hình … Kiến trúc đề xuất giảm nhiễu trước khi nhận dạng giọng nói
+(WebRTC + RNNoise + Whisper). Sơ đồ mang tính đề xuất, chưa triển khai
+trong mã nguồn SONUS TACTIC.
+
+Trong hình:
+- Bộ lọc nhiễu: WebRTC (chống echo, lọc ồn nhẹ, chỉnh gain)
+  và RNNoise (lọc ồn nền).
+- Bộ nhận dạng: Whisper ASR.
+- Lớp khớp lệnh và phát MP3: giữ nguyên website hiện tại.
+
+
+==================================================
+HÌNH 2. Hinh-so-sanh-dang-chay-va-de-xuat.png
+==================================================
+Chú thích gợi ý:
+Hình … So sánh luồng nhận dạng đang triển khai (A) và luồng đề xuất (B).
+
+Cột A (đang chạy):
+- Bộ lọc ồn do nhóm viết: không có.
+- Bộ nhận dạng: Web Speech API (webkitSpeechRecognition), tiếng Việt vi-VN.
+
+Cột B (đề xuất, chưa làm):
+- Bộ lọc: WebRTC + RNNoise.
+- Bộ nhận dạng: Whisper.
+
+Lưu ý: không đưa sơ đồ B như hệ thống đã hoàn thành.
+==================================================
